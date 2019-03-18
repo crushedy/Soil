@@ -1,0 +1,43 @@
+{
+  "configurations": [
+    {
+      "name": "Visual Micro",
+      "intelliSenseMode": "msvc-x64",
+	  "C_Cpp.intelliSenseEngine": "Tag Parser",
+      "includePath": [
+                "${workspaceRoot}",
+                "{path-to-arduino}/hardware/arduino/avr/cores/arduino/",
+                "{path-to-arduino}/hardware/arduino/avr/libraries/EEPROM/",
+                "{path-to-arduino}/hardware/arduino/avr/libraries/SPI/",
+                "{path-to-arduino}/hardware/arduino/avr/libraries/SoftwareSerial/",
+                "{path-to-arduino}/hardware/arduino/avr/libraries/Wire/",
+                "{path-to-arduino}/hardware/tools/avr/avr/include/",
+                "{path-to-arduino}/hardware/tools/avr/avr/include/avr/",
+                "{path-to-arduino}/hardware/tools/avr/avr/include/compat/",
+                "{path-to-arduino}/hardware/tools/avr/avr/include/util/",
+                "{path-to-arduino}/hardware/tools/avr/lib/gcc/avr/4.*.*/include/",
+                "{path-to-arduino}/hardware/tools/avr/lib/gcc/avr/4.*.*/include-fixed/"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": false,
+                "path": [
+                    "${workspaceRoot}",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\avr\\include",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\5.4.0\\include",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\variants\\mega"
+                ]
+				,
+      "defines": [
+        "__AVR_ATmega1284p__",
+        "__AVR_ATmega1284P__",
+        "F_CPU=16000000L",
+        "ARDUINO=10805",
+        "ARDUINO_1284P_STANDARD",
+        "ARDUINO_ARCH_AVR",
+        "__cplusplus=201103L",
+        "_VMICRO_INTELLISENSE"
+      ]
+    }
+  ]
+}
