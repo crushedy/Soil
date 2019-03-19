@@ -81,8 +81,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\Soil;\\ss002207\TAARUAL5$\Documents\Arduino\libraries\RTC_M41T62-master;C:\Program Files (x86)\Arduino16\hardware\arduino\avr\libraries\Wire\src;\\ss002207\TAARUAL5$\Documents\Arduino\libraries\Low-Power;\\ss002207\TAARUAL5$\Documents\Arduino\libraries\MAX17048;C:\Program Files (x86)\Arduino16\hardware\arduino\avr\libraries\Wire\src\utility;C:\Program Files (x86)\Arduino16\libraries;C:\Program Files (x86)\Arduino16\hardware\arduino\avr\libraries;C:\Users\taarual5\AppData\Local\arduino15\packages\tuino\hardware\avr\1.1.0\libraries;\\ss002207\TAARUAL5$\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino16\hardware\arduino\avr\cores\arduino;C:\Users\taarual5\AppData\Local\arduino15\packages\tuino\hardware\avr\1.1.0\variants\standard;C:\Program Files (x86)\Arduino16\hardware\tools\avr\avr\include;C:\Program Files (x86)\Arduino16\hardware\tools\avr\avr\include\avr;C:\Program Files (x86)\Arduino16\hardware\tools\avr\lib\gcc\avr\4.8.1\include;C:\Program Files (x86)\Arduino16\hardware\tools\avr\lib\gcc\avr\4.9.2\include;C:\Program Files (x86)\Arduino16\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ProjectDir)__vm\.Soil.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\soil_arduino;\\ss002207\TAARUAL5$\Documents\Arduino\libraries\RTC_M41T62-master;C:\Program Files (x86)\Arduino16\hardware\arduino\avr\libraries\Wire\src;\\ss002207\TAARUAL5$\Documents\Arduino\libraries\Low-Power;\\ss002207\TAARUAL5$\Documents\Arduino\libraries\MAX17048;C:\Program Files (x86)\Arduino16\hardware\arduino\avr\libraries\Wire\src\utility;C:\Program Files (x86)\Arduino16\libraries;C:\Program Files (x86)\Arduino16\hardware\arduino\avr\libraries;C:\Users\taarual5\AppData\Local\arduino15\packages\tuino\hardware\avr\1.1.0\libraries;\\ss002207\TAARUAL5$\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino16\hardware\arduino\avr\cores\arduino;C:\Users\taarual5\AppData\Local\arduino15\packages\tuino\hardware\avr\1.1.0\variants\standard;C:\Program Files (x86)\Arduino16\hardware\tools\avr\avr\include;C:\Program Files (x86)\Arduino16\hardware\tools\avr\avr\include\avr;C:\Program Files (x86)\Arduino16\hardware\tools\avr\lib\gcc\avr\4.8.1\include;C:\Program Files (x86)\Arduino16\hardware\tools\avr\lib\gcc\avr\4.9.2\include;C:\Program Files (x86)\Arduino16\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ProjectDir)__vm\.soil_arduino.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__AVR_ATmega1284p__;__AVR_ATmega1284P__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=10808;ARDUINO_1284P_STANDARD;ARDUINO_ARCH_AVR;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -127,6 +127,7 @@
     <ClInclude Include="Regexp.h" />
     <ClInclude Include="SeeedOLED.h" />
     <ClInclude Include="__vm\.Soil.vsarduino.h" />
+    <ClInclude Include="__vm\.soil_arduino.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Debug\Power\MAX17048.cpp" />
