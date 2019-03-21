@@ -86,8 +86,7 @@ void setup() {
 	Wire.begin();
 	Serial.begin(9600);
 	Serial.println("Starting");
-	batteryMonitor.reset();
-	batteryMonitor.quickStart();
+	batteryMonitor.attatch(Wire);
 	delay(1000);
 
 	// Init Oled
@@ -353,7 +352,6 @@ void loop() {
 		{
 			Serial.println("timeout fetching time");
 			state = SEND_TIME_COMMAND;
-
 		}
 		if (data_received)
 		{

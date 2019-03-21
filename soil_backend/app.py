@@ -2,6 +2,7 @@
 import os
 import json
 import struct
+import time
 import numpy as np
 import datetime as dt
 from flask import Flask, Response, request, redirect, url_for, escape, jsonify, make_response
@@ -132,30 +133,48 @@ def sc_lpn():
 	bytes = bytearray.fromhex(payload)
 	r_time = j['DevEUI_uplink']['Time']
 	r_timestamp = dt.datetime.strptime(r_time,"%Y-%m-%dT%H:%M:%S.%f+02:00")
-	
-	
-	if(r_deveui in tuino_list):
-		r_temperature = (bytes[0]<<8)+bytes[1]
-		r_iluminance = bytes[2]
-		r_humidity = bytes[3]
-		r_counter = (bytes[4]>>8)+bytes[5]
-		r_debit = ((bytes[6]>>8)+bytes[7])/100
-		r_voltage = ((bytes[8]>>8)+bytes[9])
+	if sys.getsizeof(bytes)) == 1:
+		if(bytes[0]=='t')	##send time
+			headers_POST = "Content-type:application/x-www-form-urlencoded"
+			time=int(time.time())
+			time_bytes = time.to_bytes(4, 'big')
+			print('sending to LoRa');
+			params = {'DevEUI' = r_deveui,
+			'FPORT' = '1',
+			'Payload' = time_bytes			
+			}
+			url="https://proxy1.lpn.swisscom.ch/thingpark/lrc/rest/downlink/"
+			request.post(url, headers=headers_POST, params=params)
+		elif
+			if(bytes[0]=='U')	##Unexpected Flow
+			print('unexpected flow')
 		
-		print('Temperature = ' + str(r_temperature) + ' deg C')
-		print('Iluminance = ' + str(r_iluminance) + '%')
-		print('Humidity = ' + str(r_humidity) + '%')
-		print('Counter = ' + str(r_counter) + ' pulses')
-		print('Debit = ' + str(r_debit) + ' l')
-		print('Voltage = ' + str(r_voltage) + ' mV')
-	else:
-		return "device type not recognised"
+		elif
+			if(bytes[0]=='B')	##Unexpected Flow
+			print('Battery Low')
+	else
+		if(r_deveui in tuino_list):
+			r_temperature = (bytes[0]<<8)+bytes[1]
+			r_iluminance = bytes[2]
+			r_humidity = bytes[3]
+			r_counter = (bytes[4]>>8)+bytes[5]
+			r_debit = ((bytes[6]>>8)+bytes[7])/100
+			r_voltage = ((bytes[8]>>8)+bytes[9])
+			
+			print('Temperature = ' + str(r_temperature) + ' deg C')
+			print('Iluminance = ' + str(r_iluminance) + '%')
+			print('Humidity = ' + str(r_humidity) + '%')
+			print('Counter = ' + str(r_counter) + ' pulses')
+			print('Debit = ' + str(r_debit) + ' l')
+			print('Voltage = ' + str(r_voltage) + ' mV')
+		else:
+			return "device type not recognised"
 
-	datapoint = DataPoint(devEUI=r_deveui, time= r_time, timestamp = r_timestamp, temperature=r_temperature, iluminance=r_iluminance, humidity = r_humidity, counter=r_counter, debit=r_debit, voltage=r_voltage)
-	print(datapoint)
-	datapoint.save()
-	print('Datapoint saved to database')
-	return 'Datapoint DevEUI %s saved' %(r_deveui)
+		datapoint = DataPoint(devEUI=r_deveui, time= r_time, timestamp = r_timestamp, temperature=r_temperature, iluminance=r_iluminance, humidity = r_humidity, counter=r_counter, debit=r_debit, voltage=r_voltage)
+		print(datapoint)
+		datapoint.save()
+		print('Datapoint saved to database')
+		return 'Datapoint DevEUI %s saved' %(r_deveui)
 
 
 # start the app
